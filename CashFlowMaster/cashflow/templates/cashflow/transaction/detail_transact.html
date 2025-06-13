@@ -1,0 +1,41 @@
+{% extends 'cashflow/base.html' %} 
+
+
+{% block content %}
+
+<div class="container rounded mt-5 p-4">
+	<table class="table table-striped table-bordered bg-secondary">
+		<tr>
+			<th>Дата создания</th>
+			<th>{{ obj.date_created }}</th>
+		</tr>
+		<tr>
+			<th>Статус</th>
+			<th>{{ obj.status_act }}</th>
+		</tr>
+		<tr>
+			<th>Тип</th>
+			<th>{{ obj.type_act }}</th>
+		</tr>
+		<tr>
+			<th>Категория</th>
+			<th>{{ obj.category_act }}</th>
+		</tr>
+		<tr>
+			<th>Подкатегория</th>
+			<th>{{ obj.subcategory_act }}</th>
+		</tr>
+		<tr>
+			<th>Сумма</th>
+			<th>{{ obj.amount }}</th>
+		</tr>
+		<tr>
+			<th>Комментарий</th>
+			<th>{{ obj.comment }}</th>
+		</tr>
+	</table>
+	<a class="btn btn-primary" href="{% url 'cashflow:update_transact' pk=obj.pk %}"> Изменить</a>
+	<a class="btn btn-primary bg-danger border-danger" href="{% url 'cashflow:delete_transact' pk=obj.pk %}">Удалить</a>
+</div>
+
+{% endblock %}

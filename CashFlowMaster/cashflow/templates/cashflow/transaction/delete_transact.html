@@ -1,0 +1,28 @@
+{% extends 'cashflow/base.html' %} 
+
+
+{% block content %}
+
+<div class="container bg-secondary rounded mt-5 mb-5 p-4 w-50">
+	<table class="table table-striped table-bordered bg-secondary">
+		<tr>
+			<th>Дата создания записи</th>
+			<th>{{ obj.date_created }}</th>
+		</tr>
+		<tr>
+			<th>Статус</th>
+			<th>{{ obj.status_act }}</th>
+		</tr>
+		<tr>
+			<th>Сумма</th>
+			<th>{{ obj.amount }}</th>
+		</tr>
+	</table>
+	<form method="post">
+		{% csrf_token %}
+
+		<button type="submit" class="btn btn-primary bg-danger border-danger mt-3">Безвозвратно удалить запись</button>
+	</form>
+</div>
+
+{% endblock %}

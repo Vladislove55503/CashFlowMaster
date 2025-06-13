@@ -1,0 +1,44 @@
+{% extends 'cashflow/base.html' %} 
+
+
+{% block content %}
+
+<div class="container bg-secondary rounded mt-5 mb-5 p-4 w-50">
+	<form method="post">
+		{% csrf_token %} 
+		{{ form.media.js }}
+
+		<div class="">
+			<label class="form-label text-white">Дата:</label>
+			<div class="row ps-2 pe-2">{{ form.date_created }}</div>
+		</div>
+		<div class="">
+			<label class="form-label text-white">Статус:</label>
+			{{ form.status_act }}
+		</div>
+		<div class="">
+			<label class="form-label text-white">Тип:</label>
+			{{ form.type_act }}
+		</div>
+		<div class="">
+			<label class="form-label text-white">Категория:</label>
+			{{ form.category_act }}
+		</div>
+		<div class="">
+			<label class="form-label text-white">Подкатегория:</label>
+			{{ form.subcategory_act }}
+		</div>
+		<div class="">
+			<label class="form-label text-white">Сумма:</label>
+			{{ form.amount }}
+		</div>
+		<div class="">
+			<label class="form-label text-white">Комментарий:</label>
+			{{ form.comment }}
+		</div>
+
+		<button type="submit" class="btn btn-primary mt-3">Обновить запись</button>
+	</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'cashflow/base.html' %} 
+
+
+{% block content %}
+
+<div class="container rounded mt-5 p-4">
+	<div class="mb-5">
+		<h2 class="form-label rounded p-2 mb-4" style="background-color: #c2c2c2">
+			Статусы
+			<a class="btn btn-primary bg-success border-success" href="{% url 'cashflow:create_status_action' %}"> Создать</a>
+		</h2>
+
+		{% for obj in status_act_qs %}
+		<div class="card d-inline-block m-2">
+			<div class="card-body p-2">
+				<span class="ms-2 me-2"><b>{{ obj.name }}</b></span>
+				<a class="btn btn-primary" href="{% url 'cashflow:update_status_action' pk=obj.pk %}"> Изменить</a>
+				<a class="btn btn-primary bg-danger border-danger" href="{% url 'cashflow:delete_status_action' pk=obj.pk %}">
+					Удалить</a
+				>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+	<div class="mb-5">
+		<h2 class="form-label rounded p-2 mb-4" style="background-color: #c2c2c2">
+			Типы
+			<a class="btn btn-primary bg-success border-success" href="{% url 'cashflow:create_type_action' %}"> Создать</a>
+		</h2>
+
+		{% for obj in type_act_qs %}
+		<div class="card d-inline-block m-2">
+			<div class="card-body p-2">
+				<span class="ms-2 me-2"><b>{{ obj.name }}</b></span>
+				<a class="btn btn-primary" href="{% url 'cashflow:update_type_action' pk=obj.pk %}"> Изменить</a>
+				<a class="btn btn-primary bg-danger border-danger" href="{% url 'cashflow:delete_type_action' pk=obj.pk %}">
+					Удалить</a
+				>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+	<div class="mb-5">
+		<h2 class="form-label rounded p-2 mb-4" style="background-color: #c2c2c2">
+			Категории
+			<a class="btn btn-primary bg-success border-success" href="{% url 'cashflow:create_category_action' %}">
+				Создать</a
+			>
+		</h2>
+
+		{% for obj in category_act_qs %}
+		<div class="card d-inline-block m-2">
+			<div class="card-body p-2">
+				<span class="ms-2 me-2"><b>{{ obj.name }}</b></span>
+				<a class="btn btn-primary" href="{% url 'cashflow:update_category_action' pk=obj.pk %}"> Изменить</a>
+				<a class="btn btn-primary bg-danger border-danger" href="{% url 'cashflow:delete_category_action' pk=obj.pk %}">
+					Удалить</a
+				>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+	<div class="mb-5">
+		<h2 class="form-label rounded p-2 mb-4" style="background-color: #c2c2c2">
+			Подкатегории
+			<a class="btn btn-primary bg-success border-success" href="{% url 'cashflow:create_subcategory_action' %}">
+				Создать</a
+			>
+		</h2>
+
+		{% for obj in subcategory_act_qs %}
+		<div class="card d-inline-block m-2">
+			<div class="card-body p-2">
+				<span class="ms-2 me-2"><b>{{ obj.name }}</b></span>
+				<a class="btn btn-primary" href="{% url 'cashflow:update_subcategory_action' pk=obj.pk %}"> Изменить</a>
+				<a
+					class="btn btn-primary bg-danger border-danger"
+					href="{% url 'cashflow:delete_subcategory_action' pk=obj.pk %}">
+					Удалить</a
+				>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}
